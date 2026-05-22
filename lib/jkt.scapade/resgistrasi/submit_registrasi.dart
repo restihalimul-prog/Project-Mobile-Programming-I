@@ -2,8 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-
-import 'package:project_mp1/jkt.scapade/beranda/beranda.dart';
+import 'package:project_mp1/jkt.scapade/beranda/main_page.dart';
 
 //import 'package:project_mobile_programming/hover.dart';
 
@@ -20,7 +19,7 @@ class SubmitRegistrasi extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Beranda()),
+            MaterialPageRoute(builder: (context) => MainPage()),
           );
         },
         style: ElevatedButton.styleFrom(
@@ -32,11 +31,8 @@ class SubmitRegistrasi extends StatelessWidget {
           ),
         ),
         child: const Text(
-        'Daftar',
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          ),
+          'Daftar',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ),
     );

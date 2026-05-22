@@ -19,8 +19,8 @@ class WisataDetailPage extends StatelessWidget {
             // Gambar utama
             ClipRRect(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
-              child: Image.network(
-                wisata.gambar,
+              child: Image.asset(
+                'assets/image/ragunan.jpg',
                 width: double.infinity,
                 height: 250,
                 fit: BoxFit.cover,

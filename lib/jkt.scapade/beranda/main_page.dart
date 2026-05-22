@@ -12,24 +12,31 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int pageIndex = 0;
-  List<Widget> pageList = [Beranda(), ExplorePage(), ProfilPage()];
+
+  final List<Widget> pageList = [Beranda(), ExplorePage(), ProfilPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: pageList[pageIndex],
+
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+
+        currentIndex: pageIndex,
+
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+
         onTap: (index) {
           setState(() {
             pageIndex = index;
           });
         },
-        currentIndex: pageIndex,
+
         items: [
           barItem(Icons.home, "Beranda"),
           barItem(Icons.search, "Explore"),
-          barItem(Icons.account_circle_outlined, "Profil"),
         ],
       ),
     );

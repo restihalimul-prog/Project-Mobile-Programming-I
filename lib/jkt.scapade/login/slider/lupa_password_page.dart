@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_mp1/jkt.scapade/beranda/beranda.dart';
 
-
 class LupaPasswordPage extends StatefulWidget {
   const LupaPasswordPage({super.key});
 
@@ -17,100 +16,197 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Lupa Password", style: TextStyle(fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
+        title: const Text(
+          "Lupa Password",
+
+          style: TextStyle(fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+        ),
+
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: const Color(0xFF42A5F5),
       ),
+
       body: Container(
         width: double.infinity,
-        padding: const EdgeInsets.all(30),
+
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.white, Color(0xFFE3F2FD)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            colors: [Color(0xFFF8FBFF), Color(0xFFD6ECFF), Color(0xFFB3D9FF)],
+
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
         ),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(
-                Icons.lock_reset,
-                size: 100,
-                color: Colors.blue,
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                "Reset Password",
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Text(
-                "Masukkan email untuk memproses Login Anda",
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.black54),
-              ),
-              const SizedBox(height: 40),
-              TextFormField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  labelText: "Email",
-                  prefixIcon: const Icon(Icons.email_outlined),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Email tidak boleh kosong";
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 30),
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // 1. Tampilkan notifikasi berhasil
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text("Mengalihkan ke Beranda..."),
-                          backgroundColor: Colors.green,
-                        ),
-                      );
 
-                      // 2. Jeda 1.5 detik agar user sempat baca pesan, lalu ke Beranda
-                      Future.delayed(const Duration(milliseconds: 1500), () {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: (context) => const Beranda()),
-                          (route) => false, // Menghapus semua halaman lama agar tidak bisa 'back' ke login
-                        );
-                      });
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24),
+
+            child: Container(
+              width: 450,
+
+              padding: const EdgeInsets.all(25),
+
+              decoration: BoxDecoration(
+                color: Colors.white,
+
+                borderRadius: BorderRadius.circular(25),
+
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 15,
+                    offset: Offset(0, 8),
+                  ),
+                ],
+              ),
+
+              child: Form(
+                key: _formKey,
+
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+
+                  children: [
+                    // ICON
+                    Container(
+                      padding: const EdgeInsets.all(20),
+
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE3F2FD),
+
+                        shape: BoxShape.circle,
+                      ),
+
+                      child: const Icon(
+                        Icons.lock_reset,
+                        size: 70,
+                        color: Color(0xFF42A5F5),
+                      ),
                     ),
-                  ),
-                  child: const Text(
-                    "Kirim",
-                    style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
+
+                    const SizedBox(height: 25),
+
+                    // TITLE
+                    const Text(
+                      "Reset Password",
+
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24,
+                        color: Color(0xFF42A5F5),
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+
+                    const SizedBox(height: 12),
+
+                    // SUBTITLE
+                    const Text(
+                      "Masukkan email yang terdaftar untuk menerima link reset password.",
+
+                      textAlign: TextAlign.center,
+
+                      style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 15,
+                        height: 1.6,
+                        fontFamily: 'Poppins',
+                      ),
+                    ),
+
+                    const SizedBox(height: 30),
+
+                    // EMAIL FIELD
+                    TextFormField(
+                      controller: emailController,
+
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+
+                        labelText: "Email",
+
+                        prefixIcon: const Icon(Icons.email_outlined),
+
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                      ),
+
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Email tidak boleh kosong";
+                        }
+
+                        return null;
+                      },
+                    ),
+
+                    const SizedBox(height: 30),
+
+                    // BUTTON
+                    SizedBox(
+                      width: double.infinity,
+                      height: 55,
+
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            // SNACKBAR
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text("Mengalihkan ke Beranda..."),
+
+                                backgroundColor: Colors.grey,
+                              ),
+                            );
+
+                            // PINDAH HALAMAN
+                            Future.delayed(
+                              const Duration(milliseconds: 1500),
+
+                              () {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+
+                                  MaterialPageRoute(
+                                    builder: (context) => const Beranda(),
+                                  ),
+
+                                  (route) => false,
+                                );
+                              },
+                            );
+                          }
+                        },
+
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF1E88E5),
+                          foregroundColor: Colors.white,
+                          elevation: 5,
+
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                        ),
+
+                        child: const Text(
+                          "Kirim",
+
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
         ),
       ),

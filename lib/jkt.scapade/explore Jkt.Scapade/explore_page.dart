@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:project_mp1/jkt.scapade/explore%20Jkt.Scapade/kuliner_jakarta/jakarta_barat.dart';
+import 'package:project_mp1/jkt.scapade/explore%20Jkt.Scapade/kuliner_jakarta/jakarta_pusat.dart';
+import 'package:project_mp1/jkt.scapade/explore%20Jkt.Scapade/kuliner_jakarta/jakarta_selatan.dart';
+import 'package:project_mp1/jkt.scapade/explore%20Jkt.Scapade/kuliner_jakarta/jakarta_timur.dart';
+import 'package:project_mp1/jkt.scapade/explore%20Jkt.Scapade/kuliner_jakarta/jakarta_utara.dart';
 
 // Import sesuai project kamu
 import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/wisata_jkt.dart/tempat_sejarah.dart';
-import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/wisata_jkt.dart/wisata_page.dart';
 import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/wisata_jkt.dart/destinasi_wisata.dart';
-import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/wisata_jkt.dart/place_hits.dart';
-
-import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/kuliner_jakarta/Billys_Block_Senopati_Suites.dart';
-import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/kuliner_jakarta/familymart_kyai_maja.dart';
-import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/kuliner_jakarta/Hause_Rooftop_SetiaBudi.dart';
+import 'package:project_mp1/jkt.scapade/explore%20Jkt.Scapade/wisata_jkt.dart/place_hits.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
@@ -19,13 +18,9 @@ class ExplorePage extends StatefulWidget {
 }
 
 class _ExplorePageState extends State<ExplorePage> {
-  // Gunakan index 0 saja agar SmoothPageIndicator sinkron dengan jumlah item
   final _controllerSeputar = PageController();
   final _controllerWisata = PageController();
   final _controllerKuliner = PageController();
-
-  // Variabel untuk navigasi bawah
-  int _bottomNavIndex = 1; // Set ke 1 karena ini halaman Explore
 
   @override
   void dispose() {
@@ -43,7 +38,11 @@ class _ExplorePageState extends State<ExplorePage> {
           automaticallyImplyLeading: false,
           title: const Text(
             "Hai ... Mau Explore Jakarta Hari Ini?",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
           ),
           centerTitle: true,
           backgroundColor: Colors.white,
@@ -63,135 +62,141 @@ class _ExplorePageState extends State<ExplorePage> {
           ),
         ),
 
-        body: ListView(
-          padding: const EdgeInsets.all(12),
-          children: [
-            _buildSwipeSection(
-              context,
-              title: "Sekitar Jakarta",
-              subtitle: "Informasi menarik tentang kota Jakarta",
-              controller: _controllerSeputar,
-              items: [
-                _buildCardItem(
-                  context,
-                  'Tempat Sejarah',
-                  'assets/image/sejarah.jpeg',
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => TempatSejarah()),
-                    );
-                  },
-                ),
-                _buildCardItem(
-                  context,
-                  'Wisata Jakarta',
-                  'assets/image/TMII.jpg',
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => WisataPage()),
-                    );
-                  },
-                ),
-                _buildCardItem(
-                  context,
-                  'Destinasi Wisata',
-                  'assets/image/Ancol.jpg',
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => DestinasiWisata()),
-                    );
-                  },
-                ),
-                _buildCardItem(
-                  context,
-                  'Place Hits',
-                  'assets/image/SCBD Park.jpg',
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => PlaceHitsPage()),
-                    );
-                  },
-                ),
-              ],
+        // --- BAGIAN BACKGROUND GRADIENT DIKEMBALIKAN DI SINI ---
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFFF8FBFF), Color(0xFFE3F2FD), Color(0xFFD6ECFF)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             ),
-            _buildSwipeSection(
-              context,
-              title: "Kuliner Populer",
-              subtitle: "Rekomendasi kuliner di Jakarta",
-              controller: _controllerKuliner,
-              items: [
-                _buildCardItem(
-                  context,
-                  'Billys Block, Senopati Suites',
-                  'assets/image/Billy.jpg',
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => BillysBlockSenopatiSuites(),
-                      ),
-                    );
-                  },
-                ),
-                _buildCardItem(
-                  context,
-                  'familymart kyai maja',
-                  'assets/image/familymart kyai maja.jpg',
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => FamilymartKyaiMaja()),
-                    );
-                  },
-                ),
-                _buildCardItem(
-                  context,
-                  'Hause Rooftop SetiaBudi',
-                  'assets/image/Hause Rooftop SetiaBudi.jpg',
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => HauseRooftopSetiabudi(),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-          ],
-        ),
-
-        // --- BAGIAN NAVIGASI BAWAH ---
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _bottomNavIndex,
-          selectedItemColor: Colors.blue[900],
-          unselectedItemColor: Colors.grey,
-          type: BottomNavigationBarType.fixed,
-          onTap: (index) {
-            setState(() {
-              _bottomNavIndex = index;
-            });
-            // Tambahkan logika perpindahan halaman di sini jika perlu
-          },
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.explore),
-              label: 'Explore',
-            ),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
-          ],
+          ),
+          child: ListView(
+            padding: const EdgeInsets.all(12),
+            children: [
+              _buildSwipeSection(
+                context,
+                title: "Sekitar Jakarta",
+                subtitle: "Informasi menarik tentang kota Jakarta",
+                controller: _controllerSeputar,
+                items: [
+                  _buildCardItem(
+                    context,
+                    'Tempat Sejarah',
+                    'assets/image/sejarah.jpeg',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const TempatSejarah(),
+                        ),
+                      );
+                    },
+                  ),
+                  _buildCardItem(
+                    context,
+                    'Destinasi Wisata',
+                    'assets/image/Ancol.jpg',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const DestinasiWisata(),
+                        ),
+                      );
+                    },
+                  ),
+                  _buildCardItem(
+                    context,
+                    'Place Hits',
+                    'assets/image/SCBD Park.jpg',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const PlaceHitsPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              _buildSwipeSection(
+                context,
+                title: "Kuliner Populer",
+                subtitle: "Rekomendasi kuliner di Jakarta",
+                controller: _controllerKuliner,
+                items: [
+                  _buildCardItem(
+                    context,
+                    'Kuliner Jakarta Barat',
+                    'assets/image/jakarta_barat.jpg',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const JakartaBarat()),
+                      );
+                    },
+                  ),
+                  _buildCardItem(
+                    context,
+                    'Kuliner Jakarta Utara',
+                    'assets/image/jakarta_utara.jpg',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const JakartaUtara()),
+                      );
+                    },
+                  ),
+                  _buildCardItem(
+                    context,
+                    'Kuliner Jakarta Pusat',
+                    'assets/image/jakarta_pusat.jpg',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const JakartaPusat()),
+                      );
+                    },
+                  ),
+                  _buildCardItem(
+                    context,
+                    'Kuliner Jakarta Timur',
+                    'assets/image/jakarta_timur.jpg',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const JakartaTimur()),
+                      );
+                    },
+                  ),
+                  _buildCardItem(
+                    context,
+                    'Kuliner Jakarta Selatan',
+                    'assets/image/jakarta_selatan.jpg',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const JakartaSelatan(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
   }
 
+  // Widget pendukung untuk Swipe Section
   Widget _buildSwipeSection(
     BuildContext context, {
     required String title,
@@ -211,69 +216,18 @@ class _ExplorePageState extends State<ExplorePage> {
             color: Colors.blue[900],
           ),
         ),
-        const SizedBox(height: 12),
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            SizedBox(
-              height: 260,
-              width: double.infinity,
-              child: PageView.builder(
-                controller: controller,
-                itemCount: items
-                    .length, // Pakai items.length agar indikator titik sinkron
-                itemBuilder: (_, index) {
-                  return items[index];
-                },
-              ),
-            ),
-            Positioned(
-              left: 0,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back_ios, color: Colors.black87),
-                onPressed: () {
-                  controller.previousPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                },
-              ),
-            ),
-            Positioned(
-              right: 0,
-              child: IconButton(
-                icon: const Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.black87,
-                ),
-                onPressed: () {
-                  controller.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                },
-              ),
-            ),
-          ],
+        const SizedBox(height: 8),
+        Text(
+          subtitle,
+          style: const TextStyle(fontSize: 14, color: Colors.grey),
         ),
-        const SizedBox(height: 10),
-        Center(
-          child: SmoothPageIndicator(
-            controller: controller,
-            count: items.length,
-            effect: WormEffect(
-              activeDotColor: Colors.blue[900]!,
-              dotColor: Colors.grey.shade300,
-              dotHeight: 10,
-              dotWidth: 10,
-              spacing: 8,
-            ),
-          ),
-        ),
+        const SizedBox(height: 16),
+        Column(children: items),
       ],
     );
   }
 
+  // Widget pendukung untuk Card Item
   Widget _buildCardItem(
     BuildContext context,
     String title,
@@ -281,7 +235,7 @@ class _ExplorePageState extends State<ExplorePage> {
     VoidCallback onTap,
   ) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: 4,
       child: InkWell(
@@ -298,12 +252,22 @@ class _ExplorePageState extends State<ExplorePage> {
                 height: 180,
                 width: double.infinity,
                 fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    height: 180,
+                    color: Colors.grey[200],
+                    child: const Icon(
+                      Icons.broken_image,
+                      size: 50,
+                      color: Colors.grey,
+                    ),
+                  );
+                },
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     child: Text(

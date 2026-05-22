@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_mp1/jkt.scapade/login/slider/button_login.dart';
 import 'package:project_mp1/jkt.scapade/resgistrasi/button_registrasi.dart';
 
-// Import halaman explore agar bisa pindah lewat menu bawah
-import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/explore_page.dart';
-
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
 
@@ -13,21 +10,27 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  // Index 0 karena ini halaman Beranda/Welcome
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.white, Color(0xFFE3F2FD)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Color(0xFFF8FBFF), Color(0xFFD6ECFF), Color(0xFFB3D9FF)],
+
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
+
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 15,
+              offset: Offset(0, 8),
+            ),
+          ],
         ),
         child: SafeArea(
           child: Center(
@@ -52,7 +55,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     ),
                     child: ClipOval(
                       child: Image.asset(
-                        'assets/images/logo.jpeg', // Pastikan folder 'images' atau 'image' benar
+                        'assets/image/logo.jpeg',
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) =>
                             const Icon(
@@ -64,33 +67,43 @@ class _WelcomePageState extends State<WelcomePage> {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 30),
+                const Text(
+                  "EXPLORE JAKARTA",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    letterSpacing: 3,
+                    color: Colors.blueGrey,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Poppins',
+                  ),
+                ),
 
+                const SizedBox(height: 10),
                 const Text(
                   "Selamat Datang",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 34,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                    color: Color(0xFF1565C0),
+                    fontFamily: 'Poppins',
+                    letterSpacing: 1,
                   ),
                 ),
-
                 const SizedBox(height: 15),
-
                 const Text(
                   'Ini adalah Aplikasi Jkt.Scapade di mana kamu dapat mengeksplor Jakarta hanya dalam genggamanmu.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     color: Colors.black87,
-                    height: 1.5,
+                    height: 1.7,
+                    fontFamily: 'Poppins',
                   ),
                 ),
-
                 const SizedBox(height: 50),
-
                 // Tombol Registrasi
                 Center(
                   child: SizedBox(
@@ -99,9 +112,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     child: const ButtonRegistrasi(),
                   ),
                 ),
-
                 const SizedBox(height: 15),
-
                 // Tombol Login
                 Center(
                   child: SizedBox(
@@ -115,30 +126,7 @@ class _WelcomePageState extends State<WelcomePage> {
           ),
         ),
       ),
-
-      // --- TAMBAHKAN INI DI BAWAH ---
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.blue[900],
-        unselectedItemColor: Colors.grey,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-
-          // Jika klik icon Explore (index 1), pindah ke ExplorePage
-          if (index == 1) {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => const ExplorePage()),
-            );
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
-          BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
-        ],
-      ),
+      // Navigasi bawah dihapus dari sini sesuai permintaanmu
     );
   }
 }
