@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "226827460415",
+    "project_id": "jkt-scapade",
+    "storage_bucket": "jkt-scapade.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226827460415:android:84a95b3870e8db121b7d8a",
+        "android_client_info": {
+          "package_name": "com.example.project_mp1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226827460415-tat3gta4vk3cmnd1s850t0spqslfdb70.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.project_mp1",
+            "certificate_hash": "5e8f1661d4caa1d399e19207959034e18b229244"
+          }
+        },
+        {
+          "client_id": "226827460415-kv1i4shn0dcunv3kifh4ibjqo3diuias.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtZOiaU3cn36lre_cJrDJ_AdGNTvWjJXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226827460415-kv1i4shn0dcunv3kifh4ibjqo3diuias.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
