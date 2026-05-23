@@ -5,6 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:project_mp1/jkt.scapade/beranda/main_page.dart';
 import 'package:project_mp1/jkt.scapade/resgistrasi/registrasi_page.dart';
 import 'package:project_mp1/jkt.scapade/login/slider/lupa_password_page.dart';
+import 'package:project_mp1/jkt.scapade/profile/user_data.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,6 +15,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _isPasswordVisible = false;
 
@@ -33,7 +36,12 @@ class _LoginPageState extends State<LoginPage> {
         idToken: googleAuth.idToken,
       );
 
-      await FirebaseAuth.instance.signInWithCredential(credential);
+      final userCredential =
+    await FirebaseAuth.instance .signInWithCredential(credential);
+      final user = userCredential.user;
+      UserData.nama = user?.displayName ?? "Google User";
+      UserData.email = user?.email ?? "";
+      UserData.noHp = user?.phoneNumber ?? "Tidak tersedia";
 
       if (context.mounted) {
         Navigator.pushReplacement(
@@ -179,6 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
+                      controller: emailController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Email tidak boleh kosong';
@@ -192,6 +201,7 @@ class _LoginPageState extends State<LoginPage> {
                     // 7. INPUT PASSWORD
                     TextFormField(
                       obscureText: !_isPasswordVisible,
+                      controller: passwordController,
                       decoration: InputDecoration(
                         labelText: "Password",
                         prefixIcon: const Icon(Icons.lock_outline),
@@ -246,8 +256,13 @@ class _LoginPageState extends State<LoginPage> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
+                            UserData.nama = "User JktScapade";
+                            UserData.email = emailController.text;
+                            UserData.noHp = "08123456789";
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text("Login berhasil")),
+                              const SnackBar(
+                                content: Text("Login berhasil"),
+                              ),
                             );
 
                             Navigator.pushReplacement(

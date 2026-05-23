@@ -1,7 +1,5 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
 import 'package:project_mp1/jkt.scapade/beranda/main_page.dart';
 
 //import 'package:project_mobile_programming/hover.dart';
