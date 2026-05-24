@@ -87,7 +87,7 @@ final List<Map<String, String>> wisataSejarahList = [
     'nama': 'Wisma Habibie & Ainun',
     'lokasi':
         'Jl. Patra Kuningan XIII No.5, RT.6/RW.4, Kuningan Tim., Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12950',
-    'gambar': 'assets/image/museum.png',
+    'gambar': 'assets/image/wisma.jpg',
     'jam':
         'setiap Rabu, Sabtu, dan Minggu dengan waktu operasional pukul 10.00 – 18.00 WIB',
     'maps': 'https://maps.app.goo.gl/uAzzb3tYPKJc7Yky7',
@@ -134,7 +134,7 @@ final List<Map<String, String>> wisataSejarahList = [
     'nama': 'Museum Taman Prasasti',
     'lokasi':
         'Jl. Tanah Abang I No.1, RT.11/RW.8, Petojo Sel., Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10160',
-    'gambar': 'assets/image/prsasti.jpg',
+    'gambar': 'assets/image/prasasti.jpg',
     'jam': 'Selasa hingga Minggu pukul 09.00 - 15.00 WIB',
     'maps': 'https://maps.app.goo.gl/As1cy4kG3psVEAj89',
     'rating': '4.6',

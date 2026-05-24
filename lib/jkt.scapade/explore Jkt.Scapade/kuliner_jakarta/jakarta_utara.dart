@@ -4,28 +4,47 @@ import 'package:url_launcher/url_launcher.dart';
 // Data List Tempat Hits Jakarta Utara
 final List<Map<String, String>> jakartaUtaraList = [
   {
-    'nama': 'M Bloc Space',
-    'lokasi': 'Melawai, Jakarta Selatan',
-    'gambar': 'assets/image/Mbloc.jpeg',
-    'jam': '09.00 - 22.00',
-    'maps': 'https://maps.app.goo.gl/2nSxt5uZTvJNb8x58',
+    'nama': 'Ayam Goreng Serundeng Bu Heti',
+    'lokasi': 'RT.13/RW.7, West Kelapa Gading, Kelapa Gading',
+    'gambar': 'assets/image/Ayam Goreng Serundeng Bu Heti.jpg',
+    'jam': '10.00 - 22.00 WIB',
+    'maps': 'https://maps.app.goo.gl/DC7RNuRfZWg7Mw6D7',
+    'rating': '4.2',
+  },
+  {
+    'nama': 'Ayam Joyo Kemayoran',
+    'lokasi': 'Jl. Trembesi, Pademangan Tim., Kec. Pademangan',
+    'gambar': 'assets/image/Ayam Joyo Kemayoran.jpg',
+    'jam': '10.00 - 22.00 WIB',
+    'maps': 'https://maps.app.goo.gl/6sW5nvLax3G8jzsc7',
+    'rating': '4.4',
+  },
+  {
+    'nama': 'Ice Cream Swanie',
+    'lokasi':
+        'Jalan Pelepah Kuning 2 Blok WX2 No.1, RT.2/RW.16, Klp. Gading Tim',
+    'gambar': 'assets/image/Ice Cream Swanie.jpg',
+    'jam': '07.00 - 19.00 WIB',
+    'maps': 'https://maps.app.goo.gl/aLLgnS9PK5TVuhYN6',
     'rating': '4.8',
   },
   {
-    'nama': 'SCBD Park',
-    'lokasi': 'Senayan, Jakarta Selatan',
-    'gambar': 'assets/image/SCBD park.jpg',
-    'jam': '10.00 - 22.00',
-    'maps': 'https://maps.app.goo.gl/KWwaoBbA5Hnoz65n7',
-    'rating': '4.7',
+    'nama': 'Meat A Meat, Tenda Taman Sunter indah',
+    'lokasi':
+        'Tenda Taman Sunter Indah Tenda Paling Ujung, RT.13/RW.12, Sunter Jaya, Kec. Tj. Priok',
+    'gambar': 'assets/image/Meat A Meat, Tenda Taman Sunter indah.jpg',
+    'jam': '05.00 - 23.00 WIB',
+    'maps': 'https://maps.app.goo.gl/NwQ3WsxaYA6SjN9k9',
+    'rating': '4.4',
   },
   {
-    'nama': 'Cove at Batavia PIK',
-    'lokasi': 'Pantai Indah Kapuk, Jakarta Utara',
-    'gambar': 'assets/image/Cove at Batavia.jpg',
-    'jam': '07.00 - 23.00',
-    'maps': 'https://maps.app.goo.gl/Q4uym8TtgKEqS6aL7',
-    'rating': '4.6',
+    'nama': 'Stella Di Napoli Pizzeria',
+    'lokasi':
+        'Jl. Arwana Raya No.38 3, RT.3/RW.2, Pejagalan, Kecamatan Penjaringan',
+    'gambar': 'assets/image/Stella Di Napoli Pizzeria.jpeg',
+    'jam': '09.00 - 21.00 WIB',
+    'maps': 'https://maps.app.goo.gl/8UkZVDyhfHcTdsXbA',
+    'rating': '4.7',
   },
 ];
 

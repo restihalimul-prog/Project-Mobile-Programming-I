@@ -9,6 +9,7 @@ import 'package:project_mp1/jkt.scapade/explore%20Jkt.Scapade/kuliner_jakarta/ja
 import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/wisata_jkt.dart/tempat_sejarah.dart';
 import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/wisata_jkt.dart/destinasi_wisata.dart';
 import 'package:project_mp1/jkt.scapade/explore%20Jkt.Scapade/wisata_jkt.dart/place_hits.dart';
+import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/wisata_jkt.dart/tempat_nongkrong.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
@@ -117,6 +118,19 @@ class _ExplorePageState extends State<ExplorePage> {
                         context,
                         MaterialPageRoute(
                           builder: (_) => const PlaceHitsPage(),
+                        ),
+                      );
+                    },
+                  ),
+                  _buildCardItem(
+                    context,
+                    'Tempat Nongkrong',
+                    'assets/image/Jurnal Risa Coffe.jpg',
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const TempatNongkrong(),
                         ),
                       );
                     },

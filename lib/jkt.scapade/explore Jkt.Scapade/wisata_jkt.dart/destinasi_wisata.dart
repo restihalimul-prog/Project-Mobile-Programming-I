@@ -86,7 +86,7 @@ final List<Map<String, String>> destinasiWisataList = [
     'nama': 'Semesta Gallery',
     'lokasi':
         'Jalan Taman Sari I Nomor 77, Lebak Bulus, Cilandak, Jakarta Selatan.',
-    'gambar': 'assets/image/semesta gallery.jpg',
+    'gambar': 'assets/image/semesta galery.jpg',
     'jam': '10.00 – 20.00 WIB',
     'maps': 'https://maps.app.goo.gl/ivb291YbxyFnAC8e6',
     'rating': '4.7',

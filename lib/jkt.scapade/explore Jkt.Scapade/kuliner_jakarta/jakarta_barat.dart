@@ -4,29 +4,50 @@ import 'package:url_launcher/url_launcher.dart';
 // Data List Tempat Hits Jakarta Barat
 final List<Map<String, String>> jakartaBaratList = [
   {
-    'nama': 'M Bloc Space',
-    'lokasi': 'Melawai, Jakarta Selatan',
-    'gambar': 'assets/image/Mbloc.jpeg',
-    'jam': '09.00 - 22.00',
+    'nama': 'Ben Fried Chicken',
+    'lokasi': 'Jl. Meruya Ilir Raya, RT.13/RW.3, Meruya Utara, Kec. Kembangan',
+    'gambar': 'assets/image/Ben Fried Chicken jakbar.jpg',
+    'jam': '15.00 - 18.00 WIB',
     'maps':
-        'http://maps.google.com/?q=M+Bloc+Space', // Contoh URL maps yang valid
+        'https://maps.app.goo.gl/GdSswAYg4KkjGC599', // Contoh URL maps yang valid
+    'rating': '4.1',
+  },
+  {
+    'nama': 'Ini Baru Uduk',
+    'lokasi':
+        'Jl. Dr. Muwardi I No.39, RT.15/RW.3, Grogol, Kec. Grogol petamburan',
+    'gambar': 'assets/image/Ini Baru Uduk.jpg',
+    'jam': '05.30 - 11.00 WIB',
+    'maps':
+        'https://maps.app.goo.gl/HcAvmSUFCEP2KzX77', // Contoh URL maps yang valid
+    'rating': '3.9',
+  },
+  {
+    'nama': 'Ketupat Gorengan Bang Hasan',
+    'lokasi': 'Jl. Meruya Ilir Raya No.5 5, RT.5/RW.1, Kb. Jeruk',
+    'gambar': 'assets/image/Ketupat Gorengan Bang Hasan.jpg',
+    'jam': '17.00 - 00.00 WIB',
+    'maps':
+        'https://maps.app.goo.gl/AFzCkv6YvwPV4t7H8', // Contoh URL maps yang valid
+    'rating': '4.6',
+  },
+  {
+    'nama': 'Nongkitiam',
+    'lokasi': 'Jl. Tj. Duren Utara 4 No.63 RT09, RT.9/RW.3, Tj. Duren Utara',
+    'gambar': 'assets/image/Nongkitiam.jpg',
+    'jam': '70.00 - 12.00 WIB',
+    'maps':
+        'https://maps.app.goo.gl/Axv5w3B61s93AKVP6', // Contoh URL maps yang valid
     'rating': '4.8',
   },
   {
-    'nama': 'SCBD Park',
-    'lokasi': 'Senayan, Jakarta Selatan',
-    'gambar': 'assets/image/SCBD park.jpg',
-    'jam': '10.00 - 22.00',
-    'maps': 'http://maps.google.com/?q=SCBD+Park',
-    'rating': '4.7',
-  },
-  {
-    'nama': 'Cove at Batavia PIK',
-    'lokasi': 'Pantai Indah Kapuk, Jakarta Utara',
-    'gambar': 'assets/image/Cove at Batavia.jpg',
-    'jam': '07.00 - 23.00',
-    'maps': 'http://maps.google.com/?q=Cove+at+Batavia+PIK',
-    'rating': '4.6',
+    'nama': 'Sambel Pedas GokilZ, Grogol',
+    'lokasi': 'Jl. Dr. Muwardi I No. 5A, RT.12/RW.5, Grogol',
+    'gambar': 'assets/image/Sambel Pedas GokilZ, Grogol.jpg',
+    'jam': '70.00 - 12.00 WIB',
+    'maps':
+        'https://maps.app.goo.gl/rDWSX1h35m5ApM1g7', // Contoh URL maps yang valid
+    'rating': '4.9',
   },
 ];
 
