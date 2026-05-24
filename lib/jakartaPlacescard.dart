@@ -15,33 +15,37 @@ class WisataCard extends StatelessWidget {
     return Container(
 
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
+
+        color: Colors.white,
+
+        borderRadius:
+            BorderRadius.circular(25),
 
         boxShadow: [
+
           BoxShadow(
-            color: Colors.black.withOpacity(0.18),
-            blurRadius: 18,
-            offset: const Offset(0, 10),
+            color: Colors.black12,
+            blurRadius: 12,
+            offset: Offset(0, 6),
           ),
         ],
       ),
 
-      child: Card(
-        elevation: 0,
+      child: ClipRRect(
 
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-        ),
-
-        clipBehavior: Clip.antiAlias,
+        borderRadius:
+            BorderRadius.circular(25),
 
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+
+          crossAxisAlignment:
+              CrossAxisAlignment.start,
 
           children: [
 
             // IMAGE
             Expanded(
+
               flex: 8,
 
               child: SizedBox(
@@ -56,20 +60,23 @@ class WisataCard extends StatelessWidget {
 
             // CONTENT
             Expanded(
+
               flex: 2,
 
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 10,
+                padding:
+                    const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
                 ),
 
                 child: Column(
-                  mainAxisAlignment:
-                      MainAxisAlignment.center,
 
                   crossAxisAlignment:
                       CrossAxisAlignment.start,
+
+                  mainAxisAlignment:
+                      MainAxisAlignment.center,
 
                   children: [
 
@@ -78,25 +85,28 @@ class WisataCard extends StatelessWidget {
 
                       maxLines: 1,
 
-                      overflow: TextOverflow.ellipsis,
+                      overflow:
+                          TextOverflow.ellipsis,
 
                       style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: 22,
+                        fontWeight:
+                            FontWeight.bold,
                       ),
                     ),
 
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 6),
 
                     Text(
                       wisata.lokasi,
 
                       maxLines: 2,
 
-                      overflow: TextOverflow.ellipsis,
+                      overflow:
+                          TextOverflow.ellipsis,
 
                       style: const TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
                         color: Colors.grey,
                       ),
                     ),
