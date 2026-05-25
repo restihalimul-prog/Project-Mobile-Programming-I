@@ -109,6 +109,7 @@ class _BerandaState extends State<Beranda> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
+<<<<<<< HEAD
             Container(
               padding: const EdgeInsets.only(
                 top: 55,
@@ -194,9 +195,123 @@ class _BerandaState extends State<Beranda> {
                       ],
                     ),
                   ),
-                ],
-              ),
+=======
+
+          Container(
+            padding: const EdgeInsets.only(
+              top: 55,
+              left: 20,
+              right: 20,
+              bottom: 25,
             ),
+
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF42A5F5),
+                  Color(0xFF64B5F6),
+>>>>>>> 2bfc3b6f9ed56fe0e3a9fa4005c391921d1fb5e5
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+<<<<<<< HEAD
+            ),
+=======
+            ),
+
+            child: Row(
+
+              crossAxisAlignment:
+                  CrossAxisAlignment.center,
+
+              children: [
+
+                Container(
+
+                  padding: const EdgeInsets.all(3),
+
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                  ),
+
+                  child: const CircleAvatar(
+                    radius: 34,
+                    backgroundColor: Colors.white,
+
+                    child: Icon(
+                      Icons.person,
+                      size: 40,
+                      color: Color(0xFF42A5F5),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(width: 18),
+
+                Expanded(
+                  child: Column(
+
+                    crossAxisAlignment:
+                        CrossAxisAlignment.start,
+
+                    mainAxisAlignment:
+                        MainAxisAlignment.center,
+
+                    children: [
+
+                      Text(
+                        UserData.nama,
+
+                        maxLines: 1,
+
+                        overflow:
+                            TextOverflow.ellipsis,
+
+                        style: const TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+
+                      const SizedBox(height: 6),
+
+                      Text(
+                        UserData.email,
+
+                        maxLines: 1,
+
+                        overflow:
+                            TextOverflow.ellipsis,
+
+                        style: const TextStyle(
+                          fontSize: 13,
+                          color: Colors.white70,
+                        ),
+                      ),
+
+                      const SizedBox(height: 4),
+
+                      Text(
+                        UserData.noHp,
+
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.white70,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+>>>>>>> 2bfc3b6f9ed56fe0e3a9fa4005c391921d1fb5e5
 
             ListTile(
               leading: const Icon(Icons.home),
