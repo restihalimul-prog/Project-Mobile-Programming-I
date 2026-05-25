@@ -160,8 +160,10 @@ class _BerandaState extends State<Beranda> {
                 ),
               ),
 
+              
+
               accountName: Padding(
-                padding: const EdgeInsets.only(top: 8),
+                padding: const EdgeInsets.only(top: 35),
                 child: Text(
                   UserData.nama,
                   style: const TextStyle(
@@ -267,6 +269,7 @@ class _BerandaState extends State<Beranda> {
         backgroundColor: Colors.white,
 
         elevation: 0,
+        
 
         title: const Text(
           "Explore Jakarta ✨",
@@ -277,6 +280,8 @@ class _BerandaState extends State<Beranda> {
             color: Colors.black87,
           ),
         ),
+
+        
 
         leading: Builder(
           builder: (context) => IconButton(

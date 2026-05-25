@@ -60,6 +60,17 @@ class _MapsJakartaPageState extends State<MapsJakartaPage> {
         backgroundColor: const Color(0xFF42A5F5),
         elevation: 0,
 
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+            size: 28,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+
         title: const Text(
           "Explore Jakarta Maps",
           style: TextStyle(
