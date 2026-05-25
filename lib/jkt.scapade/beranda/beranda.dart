@@ -18,7 +18,6 @@ class Beranda extends StatefulWidget {
 }
 
 class _BerandaState extends State<Beranda> {
-
   late PageController _mainPageController;
   late PageController _bottomPageController;
 
@@ -43,19 +42,14 @@ class _BerandaState extends State<Beranda> {
       viewportFraction: 0.85,
     );
 
-    _autoPlayTimer = Timer.periodic(
-      const Duration(seconds: 3),
-      (timer) {
-
-        if (_bottomPageController.hasClients) {
-
-          _bottomPageController.nextPage(
-            duration: const Duration(milliseconds: 400),
-            curve: Curves.easeInOut,
-          );
-        }
-      },
-    );
+    _autoPlayTimer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (_bottomPageController.hasClients) {
+        _bottomPageController.nextPage(
+          duration: const Duration(milliseconds: 400),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
   }
 
   @override
@@ -81,34 +75,18 @@ class _BerandaState extends State<Beranda> {
   }
 
   Widget buildRating(double rating) {
-
     int fullStars = rating.floor();
 
     bool halfStar = (rating - fullStars) >= 0.5;
 
     return Row(
       children: [
-
         ...List.generate(5, (index) {
-
           if (index < fullStars) {
-
-            return const Icon(
-              Icons.star,
-              color: Colors.orange,
-              size: 16,
-            );
-
+            return const Icon(Icons.star, color: Colors.orange, size: 16);
           } else if (index == fullStars && halfStar) {
-
-            return const Icon(
-              Icons.star_half,
-              color: Colors.orange,
-              size: 16,
-            );
-
+            return const Icon(Icons.star_half, color: Colors.orange, size: 16);
           } else {
-
             return const Icon(
               Icons.star_border,
               color: Colors.orange,
@@ -119,198 +97,106 @@ class _BerandaState extends State<Beranda> {
 
         const SizedBox(width: 4),
 
-        Text(
-          rating.toStringAsFixed(1),
-          style: const TextStyle(fontSize: 14),
-        ),
+        Text(rating.toStringAsFixed(1), style: const TextStyle(fontSize: 14)),
       ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-
-      Container(
-          padding: const EdgeInsets.only(
-            top: 55,
-            left: 20,
-            right: 20,
-            bottom: 25,
-          ),
-
-<<<<<<< HEAD
-              currentAccountPictureSize:
-                  const Size.square(72),
-
+            Container(
+              padding: const EdgeInsets.only(
+                top: 55,
+                left: 20,
+                right: 20,
+                bottom: 25,
+              ),
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF42A5F5),
-                    Color(0xFF64B5F6),
-                  ],
+                  colors: [Color(0xFF42A5F5), Color(0xFF64B5F6)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
               ),
 
-              currentAccountPicture: const CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(
-                  Icons.person,
-                  size: 45,
-                  color: Color(0xFF42A5F5),
-                ),
-              ),
-
-              
-
-              accountName: Padding(
-                padding: const EdgeInsets.only(top: 35),
-                child: Text(
-                  UserData.nama,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-
-              accountEmail: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-
-                  Text(
-                    UserData.email,
-                    style: const TextStyle(
-                      color: Colors.white70,
-                      fontSize: 13,
+                  Container(
+                    padding: const EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 2),
+                    ),
+                    child: const CircleAvatar(
+                      radius: 34,
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.person,
+                        size: 40,
+                        color: Color(0xFF42A5F5),
+                      ),
                     ),
                   ),
+                  const SizedBox(width: 18),
 
-                  const SizedBox(height: 2),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
 
-                  Text(
-                    UserData.noHp,
-                    style: const TextStyle(
-                      color: Colors.white70,
-                      fontSize: 12,
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      children: [
+                        Text(
+                          UserData.nama,
+
+                          maxLines: 1,
+
+                          overflow: TextOverflow.ellipsis,
+
+                          style: const TextStyle(
+                            fontSize: 19,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+
+                        const SizedBox(height: 6),
+
+                        Text(
+                          UserData.email,
+
+                          maxLines: 1,
+
+                          overflow: TextOverflow.ellipsis,
+
+                          style: const TextStyle(
+                            fontSize: 13,
+                            color: Colors.white70,
+                          ),
+                        ),
+
+                        const SizedBox(height: 4),
+
+                        Text(
+                          UserData.noHp,
+
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.white70,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-=======
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFF42A5F5),
-                Color(0xFF64B5F6),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
->>>>>>> ac40da78abed1b790002a8f22a86b15f6338c4da
             ),
-          ),
-
-          child: Row(
-
-            crossAxisAlignment:
-                CrossAxisAlignment.center,
-
-            children: [
-
-              Container(
-
-                padding: const EdgeInsets.all(3),
-
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 2,
-                  ),
-                ),
-
-                child: const CircleAvatar(
-                  radius: 34,
-                  backgroundColor: Colors.white,
-
-                  child: Icon(
-                    Icons.person,
-                    size: 40,
-                    color: Color(0xFF42A5F5),
-                  ),
-                ),
-              ),
-
-              const SizedBox(width: 18),
-
-              Expanded(
-                child: Column(
-
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
-
-                  mainAxisAlignment:
-                      MainAxisAlignment.center,
-
-                  children: [
-
-                    Text(
-                      UserData.nama,
-
-                      maxLines: 1,
-
-                      overflow:
-                          TextOverflow.ellipsis,
-
-                      style: const TextStyle(
-                        fontSize: 19,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-
-                    const SizedBox(height: 6),
-
-                    Text(
-                      UserData.email,
-
-                      maxLines: 1,
-
-                      overflow:
-                          TextOverflow.ellipsis,
-
-                      style: const TextStyle(
-                        fontSize: 13,
-                        color: Colors.white70,
-                      ),
-                    ),
-
-                    const SizedBox(height: 4),
-
-                    Text(
-                      UserData.noHp,
-
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: Colors.white70,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
 
             ListTile(
               leading: const Icon(Icons.home),
@@ -322,14 +208,11 @@ class _BerandaState extends State<Beranda> {
               leading: const Icon(Icons.explore),
               title: const Text('Explore Wisata'),
               onTap: () {
-
                 Navigator.pop(context);
 
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const ExplorePage(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const ExplorePage()),
                 );
               },
             ),
@@ -338,14 +221,12 @@ class _BerandaState extends State<Beranda> {
               leading: const Icon(Icons.map),
               title: const Text('Maps Jakarta'),
               onTap: () {
-
                 Navigator.pop(context);
 
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        const MapsJakartaPage(),
+                    builder: (context) => const MapsJakartaPage(),
                   ),
                 );
               },
@@ -355,15 +236,11 @@ class _BerandaState extends State<Beranda> {
               leading: const Icon(Icons.person),
               title: const Text('Profile Saya'),
               onTap: () {
-
                 Navigator.pop(context);
 
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        const ProfilPage(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const ProfilPage()),
                 );
               },
             ),
@@ -381,7 +258,6 @@ class _BerandaState extends State<Beranda> {
         backgroundColor: Colors.white,
 
         elevation: 0,
-        
 
         title: const Text(
           "Explore Jakarta ✨",
@@ -393,34 +269,22 @@ class _BerandaState extends State<Beranda> {
           ),
         ),
 
-        
-
         leading: Builder(
           builder: (context) => IconButton(
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.black87,
-            ),
-            onPressed: () =>
-                Scaffold.of(context).openDrawer(),
+            icon: const Icon(Icons.menu, color: Colors.black87),
+            onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
 
         actions: [
-
           Padding(
             padding: const EdgeInsets.only(right: 12),
 
             child: GestureDetector(
-
               onTap: () {
-
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        const ProfilPage(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const ProfilPage()),
                 );
               },
 
@@ -428,11 +292,7 @@ class _BerandaState extends State<Beranda> {
                 radius: 18,
                 backgroundColor: Color(0xFF64B5F6),
 
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 20,
-                ),
+                child: Icon(Icons.person, color: Colors.white, size: 20),
               ),
             ),
           ),
@@ -440,68 +300,50 @@ class _BerandaState extends State<Beranda> {
       ),
 
       body: Container(
-
         width: double.infinity,
         height: double.infinity,
 
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFFF8FBFF),
-              Color(0xFFE3F2FD),
-              Color(0xFFD6ECFF),
-            ],
+            colors: [Color(0xFFF8FBFF), Color(0xFFE3F2FD), Color(0xFFD6ECFF)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
         ),
 
         child: SingleChildScrollView(
-
           physics: const BouncingScrollPhysics(),
 
           child: Column(
             children: [
-
               const SizedBox(height: 10),
 
               // MAIN CARD
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.50,
+                height: MediaQuery.of(context).size.height * 0.47,
 
                 child: Stack(
                   children: [
-
                     PageView.builder(
-
                       controller: _mainPageController,
 
                       onPageChanged: (index) {
-
                         setState(() {
-
-                          _currentMainPage =
-                              index % daftarWisata.length;
+                          _currentMainPage = index % daftarWisata.length;
                         });
                       },
 
                       itemBuilder: (context, index) {
-
                         final wisata =
-                            daftarWisata[
-                                index % daftarWisata.length];
+                            daftarWisata[index % daftarWisata.length];
 
                         return GestureDetector(
-
                           onTap: () {
-
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    WisataDetailPage(
-                                  wisata: wisata,
-                                ),
+                                    WisataDetailPage(wisata: wisata),
                               ),
                             );
                           },
@@ -512,9 +354,7 @@ class _BerandaState extends State<Beranda> {
                               vertical: 12,
                             ),
 
-                            child: WisataCard(
-                              wisata: wisata,
-                            ),
+                            child: WisataCard(wisata: wisata),
                           ),
                         );
                       },
@@ -525,9 +365,7 @@ class _BerandaState extends State<Beranda> {
                       top: 150,
 
                       child: IconButton(
-                        icon: const Icon(
-                          Icons.arrow_back_ios,
-                        ),
+                        icon: const Icon(Icons.arrow_back_ios),
                         onPressed: _prevMainPage,
                       ),
                     ),
@@ -537,9 +375,7 @@ class _BerandaState extends State<Beranda> {
                       top: 150,
 
                       child: IconButton(
-                        icon: const Icon(
-                          Icons.arrow_forward_ios,
-                        ),
+                        icon: const Icon(Icons.arrow_forward_ios),
                         onPressed: _nextMainPage,
                       ),
                     ),
@@ -549,40 +385,28 @@ class _BerandaState extends State<Beranda> {
 
               // INDICATOR
               Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
 
-                children: List.generate(
-                  daftarWisata.length,
-                  (index) {
+                children: List.generate(daftarWisata.length, (index) {
+                  bool isActive = _currentMainPage == index;
 
-                    bool isActive =
-                        _currentMainPage == index;
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
 
-                    return AnimatedContainer(
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
 
-                      duration:
-                          const Duration(milliseconds: 300),
+                    width: isActive ? 18 : 7,
+                    height: 7,
 
-                      margin:
-                          const EdgeInsets.symmetric(
-                        horizontal: 4,
-                      ),
+                    decoration: BoxDecoration(
+                      color: isActive
+                          ? const Color(0xFF64B5F6)
+                          : const Color(0xFFB0BEC5),
 
-                      width: isActive ? 18 : 7,
-                      height: 7,
-
-                      decoration: BoxDecoration(
-                        color: isActive
-                            ? const Color(0xFF64B5F6)
-                            : const Color(0xFFB0BEC5),
-
-                        borderRadius:
-                            BorderRadius.circular(20),
-                      ),
-                    );
-                  },
-                ),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  );
+                }),
               ),
 
               const SizedBox(height: 16),
@@ -592,40 +416,28 @@ class _BerandaState extends State<Beranda> {
                 height: 110,
 
                 child: PageView.builder(
-
                   controller: _bottomPageController,
 
                   itemBuilder: (context, index) {
-
-                    final wisata =
-                        daftarWisata[
-                            index % daftarWisata.length];
+                    final wisata = daftarWisata[index % daftarWisata.length];
 
                     return Padding(
-
-                      padding:
-                          const EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 8,
                         vertical: 4,
                       ),
 
                       child: Card(
-
                         elevation: 6,
 
-                        shape:
-                            RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
                         ),
 
                         child: Row(
                           children: [
-
                             ClipRRect(
-
-                              borderRadius:
-                                  const BorderRadius.horizontal(
+                              borderRadius: const BorderRadius.horizontal(
                                 left: Radius.circular(15),
                               ),
 
@@ -643,41 +455,30 @@ class _BerandaState extends State<Beranda> {
 
                             Expanded(
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.only(
-                                  right: 10,
-                                ),
+                                padding: const EdgeInsets.only(right: 10),
 
                                 child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
 
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
 
                                   children: [
-
                                     Text(
                                       wisata.nama,
 
                                       maxLines: 1,
 
-                                      overflow:
-                                          TextOverflow.ellipsis,
+                                      overflow: TextOverflow.ellipsis,
 
-                                      style:
-                                          const TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 16,
-                                        fontWeight:
-                                            FontWeight.w600,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
 
                                     const SizedBox(height: 6),
 
-                                    buildRating(
-                                      wisata.rating,
-                                    ),
+                                    buildRating(wisata.rating),
                                   ],
                                 ),
                               ),
