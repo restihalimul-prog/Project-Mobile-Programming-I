@@ -39,16 +39,35 @@ class _MapsJakartaPageState extends State<MapsJakartaPage> {
     },
   ];
 
-  Future<void> bukaGoogleMaps(double lat, double lng) async {
+  Future<void> bukaGoogleMaps(
+  double lat,
+  double lng,
+) async {
 
-    final Uri url = Uri.parse(
-      "https://www.google.com/maps/search/?api=1&query=$lat,$lng",
+  final Uri googleMapsUrl = Uri.parse(
+    'https://www.google.com/maps/search/?api=1&query=$lat,$lng',
+  );
+
+  try {
+
+    await launchUrl(
+      googleMapsUrl,
+
+      mode: LaunchMode.externalApplication,
     );
 
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    }
+  } catch (e) {
+
+    ScaffoldMessenger.of(context).showSnackBar(
+
+      const SnackBar(
+        content: Text(
+          'Google Maps tidak dapat dibuka',
+        ),
+      ),
+    );
   }
+}
 
   @override
   Widget build(BuildContext context) {

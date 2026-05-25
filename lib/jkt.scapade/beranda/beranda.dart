@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_mp1/jakartaPlaces_detail.dart';
 import 'package:project_mp1/jakartaPlaceslist.dart';
 import 'package:project_mp1/jakartaPlacescard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
 
 import 'package:project_mp1/jkt.scapade/profile/profile_page.dart';
@@ -26,6 +27,7 @@ class _BerandaState extends State<Beranda> {
   int _currentMainPage = 0;
 
   Timer? _autoPlayTimer;
+  final User? user = FirebaseAuth.instance.currentUser;
 
   @override
   void initState() {
@@ -135,8 +137,15 @@ class _BerandaState extends State<Beranda> {
           padding: EdgeInsets.zero,
           children: [
 
-            UserAccountsDrawerHeader(
+      Container(
+          padding: const EdgeInsets.only(
+            top: 55,
+            left: 20,
+            right: 20,
+            bottom: 25,
+          ),
 
+<<<<<<< HEAD
               currentAccountPictureSize:
                   const Size.square(72),
 
@@ -198,7 +207,110 @@ class _BerandaState extends State<Beranda> {
                   ),
                 ],
               ),
+=======
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF42A5F5),
+                Color(0xFF64B5F6),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+>>>>>>> ac40da78abed1b790002a8f22a86b15f6338c4da
             ),
+          ),
+
+          child: Row(
+
+            crossAxisAlignment:
+                CrossAxisAlignment.center,
+
+            children: [
+
+              Container(
+
+                padding: const EdgeInsets.all(3),
+
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 2,
+                  ),
+                ),
+
+                child: const CircleAvatar(
+                  radius: 34,
+                  backgroundColor: Colors.white,
+
+                  child: Icon(
+                    Icons.person,
+                    size: 40,
+                    color: Color(0xFF42A5F5),
+                  ),
+                ),
+              ),
+
+              const SizedBox(width: 18),
+
+              Expanded(
+                child: Column(
+
+                  crossAxisAlignment:
+                      CrossAxisAlignment.start,
+
+                  mainAxisAlignment:
+                      MainAxisAlignment.center,
+
+                  children: [
+
+                    Text(
+                      UserData.nama,
+
+                      maxLines: 1,
+
+                      overflow:
+                          TextOverflow.ellipsis,
+
+                      style: const TextStyle(
+                        fontSize: 19,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+
+                    const SizedBox(height: 6),
+
+                    Text(
+                      UserData.email,
+
+                      maxLines: 1,
+
+                      overflow:
+                          TextOverflow.ellipsis,
+
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: Colors.white70,
+                      ),
+                    ),
+
+                    const SizedBox(height: 4),
+
+                    Text(
+                      UserData.noHp,
+
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
 
             ListTile(
               leading: const Icon(Icons.home),
@@ -355,7 +467,7 @@ class _BerandaState extends State<Beranda> {
 
               // MAIN CARD
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.58,
+                height: MediaQuery.of(context).size.height * 0.50,
 
                 child: Stack(
                   children: [

@@ -15,8 +15,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController =
+    TextEditingController();
+  final TextEditingController passwordController =
+    TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _isPasswordVisible = false;
 
@@ -255,24 +257,32 @@ class _LoginPageState extends State<LoginPage> {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            UserData.nama = "User JktScapade";
-                            UserData.email = emailController.text;
-                            UserData.noHp = "08123456789";
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text("Login berhasil"),
-                              ),
-                            );
+                        if (_formKey.currentState!.validate()) {
+                          String email = emailController.text;
+                          String nama =
+                              email.split('@')[0];
 
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const MainPage(),
+                          UserData.nama = nama;
+                          UserData.email = email;
+
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                "Login berhasil",
                               ),
-                            );
-                          }
-                        },
+                            ),
+                          );
+
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const MainPage(),
+                            ),
+                          );
+                        }
+                      },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue,
                           shape: RoundedRectangleBorder(
