@@ -7,7 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:project_mp1/jkt.scapade/login/slider/login_page.dart'; // Sesuaikan folder lokasi LoginPage kamu
 import 'package:project_mp1/jkt.scapade/profile/ganti_password_page.dart';
-import 'package:project_mp1/jkt.scapade/profile/pengaturan_page.dart';
 import 'package:project_mp1/jkt.scapade/profile/bantuan_page.dart';
 import 'package:project_mp1/jkt.scapade/profile/tentang_aplikasi_page.dart';
 
@@ -370,15 +369,7 @@ class _ProfilPageState extends State<ProfilPage> {
                       "Switch Akun",
                       () => _switchAkun(context),
                     ),
-                    _buildDivider(),
-                    _buildMenuTile(Icons.settings, "Pengaturan", () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PengaturanPage(),
-                        ),
-                      );
-                    }),
+
                     _buildDivider(),
                     _buildMenuTile(Icons.help_outline, "Bantuan", () {
                       Navigator.push(
