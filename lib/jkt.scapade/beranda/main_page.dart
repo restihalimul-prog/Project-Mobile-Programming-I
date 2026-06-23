@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_mp1/jkt.scapade/beranda/beranda.dart';
 import 'package:project_mp1/jkt.scapade/explore Jkt.Scapade/explore_page.dart';
-import 'package:project_mp1/jkt.scapade/profile/profile_page.dart';
+import 'package:project_mp1/pages/tambah_rekomendasi_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -13,7 +13,11 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int pageIndex = 0;
 
-  final List<Widget> pageList = [Beranda(), ExplorePage(), ProfilPage()];
+  final List<Widget> pageList = [
+    Beranda(),
+    ExplorePage(),
+    TambahRekomendasiPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +41,7 @@ class _MainPageState extends State<MainPage> {
         items: [
           barItem(Icons.home, "Beranda"),
           barItem(Icons.search, "Explore"),
+          barItem(Icons.add_circle, "Tambah"),
         ],
       ),
     );
