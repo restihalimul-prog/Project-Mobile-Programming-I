@@ -101,8 +101,6 @@ class _TambahRekomendasiPageState extends State<TambahRekomendasiPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Data berhasil ditambahkan")),
       );
-
-      Navigator.pop(context);
     } catch (e) {
       ScaffoldMessenger.of(
         context,
